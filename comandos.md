@@ -30,3 +30,27 @@ Arquivos de configuração
 ```
 /etc/nginx/conf.d/
 ```
+
+## Registry
+
+Rodar o container
+```
+docker run -d -p 5000:5000 --name registry registry:2
+```
+
+Tag
+```
+docker tag ubuntu localhost:5000/myfirstimage
+```
+
+Mapeando volumes
+```
+docker run -d -p 5000:5000 --restart=always --name registry \
+  -v `pwd`/data:/var/lib/registry \
+  registry:2
+```
+# Links Úteis
+
+* Documentação Docker: https://docs.docker.com/engine/understanding-docker/
+* Docker Hub: https://hub.docker.com/
+* Mattermost: https://github.com/mattermost/mattermost-docker.git
